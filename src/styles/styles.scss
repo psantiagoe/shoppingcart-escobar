@@ -6,7 +6,7 @@ html {
 	scroll-behavior: smooth;
 }
 
-body {
+#root {
 	background-color: rgba($color: $principalBgColor, $alpha: 0.15);
 	font-family: $principalFont;
 	display: flex;
@@ -17,9 +17,23 @@ body {
 
 // Header
 header {
+	padding: 2rem;
 	nav {
 		box-shadow: 0px 1px 10px rgba($color: black, $alpha: 0.2);
+
+		.shopping-cart {
+			font-size: 1.5rem;
+		}
 	}
+}
+
+.greeting {
+	width: 700px;
+	margin: auto;
+	text-align: center;
+	background-color: $secundaryBgColor;
+	color: $primaryColor;
+	box-shadow: 0px 1px 10px rgba($color: black, $alpha: 0.2);
 }
 
 // Main
@@ -28,13 +42,12 @@ main {
 	margin: auto;
 	margin-top: 80px;
 	margin-bottom: 20px;
-	min-height: calc(100vh - 149px);
+	flex-grow: 1;
 	color: $primaryColor;
 	text-align: center;
 }
 
 // Footer
-
 footer {
 	padding-top: 10px;
 	background-color: $secundaryBgColor;
@@ -50,7 +63,7 @@ footer {
 		padding: 0;
 
 		.icon {
-			font-size: 30px;
+			font-size: 1.7rem;
 			padding: 8px 16px;
 		}
 

@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/img/foodi-logo.svg";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
 	return (
@@ -24,6 +25,7 @@ const NavBar = () => {
 							<NavDropdown.Item href="#action/3.4">Bebidas</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
+					<CartWidget />
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>
