@@ -3,3 +3,12 @@ $secundaryColor: #596475;
 $principalBgColor: #f9a620;
 $secundaryBgColor: #f8f9fa;
 $principalFont: "Roboto", sans-serif;
+$shadowAbove: 0px -1px 10px rgba(
+		$color: black,
+		$alpha: 0.2,
+	);
+$shadowDown: 0px 1px 10px
+	rgba(
+		$color: black,
+		$alpha: 0.2,
+	);

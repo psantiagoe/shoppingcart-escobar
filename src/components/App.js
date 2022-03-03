@@ -3,7 +3,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ItemListContainer from "./ItemListContainer";
 
-function App() {
+const App = () => {
 	return (
 		<>
 			<Header />
@@ -12,6 +12,6 @@ function App() {
 			<Footer />
 		</>
 	);
-}
+};
 
 export default App;
