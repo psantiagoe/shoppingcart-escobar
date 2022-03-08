@@ -34,7 +34,7 @@ const ItemCount = (props) => {
 					</button>
 				</Col>
 			</Row>
-			<Button variant="outline-warning" onClick={props.onAdd}>
+			<Button variant="outline-primary" onClick={props.onAdd}>
 				Agregar al carrito
 			</Button>
 		</Container>

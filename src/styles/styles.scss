@@ -15,6 +15,21 @@ html {
 	margin: 0;
 }
 
+.btn-outline-primary {
+	color: $principalBgColor;
+	border-color: $principalBgColor;
+
+	&:hover {
+		background-color: $principalBgColor;
+		border-color: $principalBgColor;
+	}
+}
+
+.divider {
+	border: 1px solid rgba($color: $primaryColor, $alpha: 0.1);
+	margin-bottom: 5px;
+}
+
 // Header
 header {
 	padding: 2rem;
@@ -46,42 +61,66 @@ main {
 	flex-grow: 1;
 	color: $primaryColor;
 	text-align: center;
-}
 
-.item-count {
-	width: 25vh;
-	background-color: $secundaryBgColor;
-	box-shadow: $shadowDown;
-	padding: 10px 20px;
-	border-radius: 5px;
-	text-align: center;
+	.container {
+		margin-top: 1rem;
 
-	.row {
-		align-items: center;
+		.spinner-border {
+			width: 5rem;
+			height: 5rem;
+		}
+
+		.row {
+			.col {
+				display: flex;
+				justify-content: center;
+
+				.card {
+					.card-body {
+						.cart-text {
+							flex-grow: 1;
+						}
+					}
+				}
+			}
+		}
 	}
 
-	.control-container {
-		flex-grow: 1;
-		margin-bottom: 10px;
-		justify-content: center;
+	.item-count {
+		width: 25vh;
+		background-color: $secundaryBgColor;
+		box-shadow: $shadowDown;
+		padding: 10px 20px;
 		border-radius: 5px;
-		border: 1px solid rgba($color: black, $alpha: 0.1);
-	}
+		text-align: center;
 
-	.col-auto {
-		padding: 0;
-	}
+		.row {
+			align-items: center;
+		}
 
-	.control {
-		width: 100%;
-		background-color: transparent;
-		border: none;
-		font-size: 1.2rem;
-		transition: 0.3s;
-		border-radius: 5px;
+		.control-container {
+			flex-grow: 1;
+			margin-bottom: 10px;
+			justify-content: center;
+			border-radius: 5px;
+			border: 1px solid rgba($color: black, $alpha: 0.1);
+		}
 
-		&:hover {
-			background-color: #ffc107;
+		.col-auto {
+			padding: 0;
+		}
+
+		.control {
+			width: 100%;
+			background-color: transparent;
+			border: none;
+			font-size: 1.2rem;
+			transition: 0.3s;
+			border-radius: 5px;
+
+			&:hover {
+				background-color: #ffc107;
+			}
 		}
 	}
 }
