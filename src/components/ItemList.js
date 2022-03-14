@@ -8,8 +8,8 @@ const ItemList = (props) => {
 			{props.loading && <Spinner animation="border" variant="warning" />}
 			{!props.loading && (
 				<Row xs={1} md={2} xl={3} className="g-4">
-					{props.productos.map((producto, indice) => {
-						return <Item producto={producto} />;
+					{props.productos.map((producto) => {
+						return <Item producto={producto} key={producto.id} />;
 					})}
 				</Row>
 			)}

@@ -1,9 +1,7 @@
 import { React, useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import ItemDetail from "./ItemDetail";
 
-const miOnAdd = () => {};
-
-const ItemListContainer = (props) => {
+const ItemDetailContainer = (props) => {
 	const items = [
 		{
 			id: 1,
@@ -88,18 +86,18 @@ const ItemListContainer = (props) => {
 	];
 
 	const [loading, setLoading] = useState(true);
-	const [productos, setProductos] = useState([]);
+	const [producto, setProducto] = useState([]);
 
 	const promesa = new Promise((res) => {
 		setTimeout(() => {
-			res(items);
+			res(items[0]);
 		}, 2000);
 	});
 
 	useEffect(() => {
 		promesa
-			.then((items) => {
-				setProductos(items);
+			.then((item) => {
+				setProducto(item);
 			})
 			.catch((e) => {
 				console.log(e);
@@ -109,12 +107,7 @@ const ItemListContainer = (props) => {
 			});
 	}, []);
 
-	return (
-		<>
-			<p className="greeting">{props.greeting}</p>
-			<ItemList productos={productos} loading={loading} />
-		</>
-	);
+	return <ItemDetail producto={producto} loading={loading} />;
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;

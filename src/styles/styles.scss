@@ -25,6 +25,12 @@ html {
 	}
 }
 
+.btn {
+	&:focus {
+		box-shadow: none;
+	}
+}
+
 .divider {
 	border: 1px solid rgba($color: $primaryColor, $alpha: 0.1);
 	margin-bottom: 5px;
