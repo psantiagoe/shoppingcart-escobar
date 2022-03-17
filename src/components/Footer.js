@@ -15,13 +15,13 @@ const Footer = () => {
 					</Col>
 					<Col md={6}>
 						<Nav className="justify-content-end link-color">
-							<Nav.Link href="https://www.facebook.com/">
+							<Nav.Link href="https://www.facebook.com/" target="_blank">
 								<FontAwesomeIcon icon={faFacebook} className="icon fb-icon"></FontAwesomeIcon>
 							</Nav.Link>
-							<Nav.Link href="https://www.instagram.com/">
+							<Nav.Link href="https://www.instagram.com/" target="_blank">
 								<FontAwesomeIcon icon={faInstagram} className="icon ig-icon"></FontAwesomeIcon>
 							</Nav.Link>
-							<Nav.Link href="https://twitter.com/">
+							<Nav.Link href="https://twitter.com/" target="_blank">
 								<FontAwesomeIcon icon={faTwitter} className="icon tw-icon"></FontAwesomeIcon>
 							</Nav.Link>
 						</Nav>

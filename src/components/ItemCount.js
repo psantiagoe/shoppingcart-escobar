@@ -5,11 +5,13 @@ const ItemCount = (props) => {
 	const [contador, setContador] = useState(props.initial);
 
 	const sumar = () => {
-		setContador(contador + 1);
+		if (contador < props.stock) {
+			setContador(contador + 1);
+		}
 	};
 
 	const restar = () => {
-		if (contador !== 0) {
+		if (contador > initial) {
 			setContador(contador - 1);
 		}
 	};

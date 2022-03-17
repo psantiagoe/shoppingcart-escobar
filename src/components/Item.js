@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const Item = (props) => {
 	return (
@@ -14,9 +15,11 @@ const Item = (props) => {
 						<div className="divider"></div>
 						<Card.Text>{props.producto.descripcion}</Card.Text>
 					</Card.Body>
-					<Button variant="outline-primary" className="m-2">
-						Ver detalle
-					</Button>
+					<NavLink to={"/producto/" + props.producto.id}>
+						<Button variant="outline-primary" className="m-2">
+							Ver detalle
+						</Button>
+					</NavLink>
 				</Card>
 			</Col>
 		</>
