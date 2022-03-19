@@ -3,9 +3,6 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import ItemList from "./ItemList";
 
-const miOnAdd = () => {};
-let asd;
-
 const ItemListContainer = (props) => {
 	const items = [
 		{

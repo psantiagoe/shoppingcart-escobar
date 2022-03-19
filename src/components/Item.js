@@ -2,20 +2,20 @@ import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-const Item = (props) => {
+const Item = ({ producto }) => {
 	return (
 		<>
 			<Col>
 				<Card style={{ width: "24rem" }}>
-					<Card.Img variant="top" src={props.producto.img} />
+					<Card.Img variant="top" src={producto.img} />
 					<Card.Body>
 						<Card.Title>
-							{props.producto.nombre} | $ {props.producto.precio}
+							{producto.nombre} | $ {producto.precio}
 						</Card.Title>
 						<div className="divider"></div>
-						<Card.Text>{props.producto.descripcion}</Card.Text>
+						<Card.Text>{producto.descripcion}</Card.Text>
 					</Card.Body>
-					<NavLink to={"/producto/" + props.producto.id}>
+					<NavLink to={"/producto/" + producto.id}>
 						<Button variant="outline-primary" className="m-2">
 							Ver detalle
 						</Button>

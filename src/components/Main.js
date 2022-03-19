@@ -4,7 +4,7 @@ import ItemListContainer from "./ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer";
 import Carrito from "./Carrito";
 
-const Main = (props) => {
+const Main = () => {
 	return (
 		<main>
 			<Routes>

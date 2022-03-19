@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = () => {
 	const items = [
 		{
 			id: 1,
@@ -120,7 +120,11 @@ const ItemDetailContainer = (props) => {
 			});
 	}, []);
 
-	return <ItemDetail producto={producto} loading={loading} />;
+	return (
+		<>
+			<ItemDetail producto={producto} loading={loading} />
+		</>
+	);
 };
 
 export default ItemDetailContainer;
