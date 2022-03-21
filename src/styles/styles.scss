@@ -189,6 +189,39 @@ main {
 			}
 		}
 	}
+
+	#carrito {
+		width: 70%;
+		margin: auto;
+
+		img {
+			width: 100px;
+		}
+
+		th:first-child {
+			width: 150px;
+		}
+
+		th:last-child {
+			width: 50px;
+		}
+
+		tbody {
+			tr:last-child {
+				border-top: 3px double;
+			}
+		}
+
+		.carrito-total {
+			font-weight: bold;
+			font-size: 1.2rem;
+		}
+
+		.carrito-btns {
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
 }
 
 // Footer

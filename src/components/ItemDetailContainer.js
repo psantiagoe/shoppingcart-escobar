@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import { toast } from "react-toastify";
 
 const ItemDetailContainer = () => {
 	const items = [
@@ -113,7 +114,7 @@ const ItemDetailContainer = () => {
 				setProducto(item);
 			})
 			.catch((e) => {
-				console.log(e);
+				toast.error("Error al cargar el producto.");
 			})
 			.finally(() => {
 				setLoading(false);

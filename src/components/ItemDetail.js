@@ -1,14 +1,17 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Spinner, Image, Button, Container, Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
+import { contexto } from "../context/CartContext";
 
 const ItemDetail = ({ producto, loading }) => {
 	const [showCounter, setShowCounter] = useState(true);
 	const [cantidad, setCantidad] = useState(0);
 
+	const resultado = useContext(contexto);
+	const { agregarItem } = resultado;
+
 	const onAdd = (contador) => {
-		console.log(`onAdd ejecutado. Contador: ${contador}`);
 		setShowCounter(false);
 		setCantidad(contador);
 	};
@@ -31,11 +34,23 @@ const ItemDetail = ({ producto, loading }) => {
 							<>
 								<p>
 									Seleccionaste {cantidad} {cantidad === 1 ? "cantidad" : "cantidades"} de este
-									producto.{" "}
+									producto.
 								</p>
 								<NavLink to="/carrito">
-									<Button variant="outline-primary" className="m-2">
-										Finalizar compra
+									<Button
+										variant="outline-primary"
+										className="m-2"
+										onClick={() => {
+											agregarItem(
+												producto.id,
+												producto.img,
+												producto.nombre,
+												cantidad,
+												producto.precio
+											);
+										}}
+									>
+										Confirmar compra
 									</Button>
 								</NavLink>
 							</>
