@@ -11,7 +11,7 @@ const Carrito = () => {
 		<>
 			{carrito.length === 0 && (
 				<>
-					<h3>Actualmente no hay items en el carrito</h3>
+					<h3>Actualmente no hay productos en el carrito</h3>
 					<NavLink to="/">
 						<Button variant="outline-primary" className="m-4">
 							Volver al inicio
