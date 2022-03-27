@@ -6,6 +6,7 @@ const { Provider } = contexto;
 const CartProvider = ({ children }) => {
 	const [carrito, setCarrito] = useState([]);
 	const [total, setTotal] = useState(0);
+	const [cantidad, setCantidad] = useState(0);
 
 	const borrarItem = (id) => {
 		let filteredItems = [...carrito];
@@ -61,6 +62,9 @@ const CartProvider = ({ children }) => {
 	useEffect(() => {
 		const nuevoTotal = carrito.reduce((acc, act) => acc + act.precio * act.cantidad, 0);
 		setTotal(nuevoTotal);
+
+		const nuevaCantidad = carrito.reduce((acc, act) => acc + act.cantidad, 0);
+		setCantidad(nuevaCantidad);
 	}, [carrito]);
 
 	const contextValue = {
@@ -69,6 +73,7 @@ const CartProvider = ({ children }) => {
 		borrarItem: borrarItem,
 		agregarItem: agregarItem,
 		limpiarCarrito: limpiarCarrito,
+		cantidad: cantidad,
 	};
 
 	return <Provider value={contextValue}>{children}</Provider>;

@@ -26,6 +26,10 @@ body {
 		background-color: $principalBgColor;
 		border-color: $principalBgColor;
 	}
+
+	&:hover .badge {
+		color: #fff;
+	}
 }
 
 .btn {
@@ -42,6 +46,11 @@ body {
 .spinner-border {
 	width: 5rem;
 	height: 5rem;
+}
+
+.badge {
+	color: $principalBgColor;
+	padding-right: 0;
 }
 
 // Header

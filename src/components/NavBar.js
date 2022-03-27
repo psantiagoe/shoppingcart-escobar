@@ -1,10 +1,14 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap/";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/img/foodi-logo.svg";
 import CartWidget from "./CartWidget";
+import { contexto } from "../context/CartContext";
 
 const NavBar = () => {
+	const resultado = useContext(contexto);
+	const { cantidad } = resultado;
+
 	return (
 		<Navbar fixed="top" bg="light" expand="lg">
 			<Container>
@@ -21,7 +25,7 @@ const NavBar = () => {
 						<NavLink to="/categoria/bebidas">Bebidas</NavLink>
 					</Nav>
 				</Navbar.Collapse>
-				<CartWidget />
+				{cantidad > 0 && <CartWidget />}
 			</Container>
 		</Navbar>
 	);
