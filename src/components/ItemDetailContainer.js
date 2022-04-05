@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { toast } from "react-toastify";
 import { db } from "../database/firebase";
-import { getDoc, collection, doc } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 	const [loading, setLoading] = useState(true);

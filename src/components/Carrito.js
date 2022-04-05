@@ -65,9 +65,11 @@ const Carrito = () => {
 						</tbody>
 					</Table>
 					<div className="carrito-btns">
-						<Button variant="outline-primary" className="m-2">
-							Finalizar compra
-						</Button>
+						<NavLink to="/checkout">
+							<Button variant="outline-primary" className="m-2" carrito={carrito}>
+								Paga tu carrito
+							</Button>
+						</NavLink>
 					</div>
 				</Container>
 			)}

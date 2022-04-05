@@ -1,4 +1,7 @@
 import { createContext, useEffect, useState } from "react";
+import { db } from "../database/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 export const contexto = createContext();
 const { Provider } = contexto;
@@ -7,6 +10,7 @@ const CartProvider = ({ children }) => {
 	const [carrito, setCarrito] = useState([]);
 	const [total, setTotal] = useState(0);
 	const [cantidad, setCantidad] = useState(0);
+	const [pedidoId, setPedidoId] = useState("");
 
 	const borrarItem = (id) => {
 		let filteredItems = [...carrito];
@@ -59,12 +63,51 @@ const CartProvider = ({ children }) => {
 		});
 	};
 
-	useEffect(() => {
+	const calcularTotal = () => {
 		const nuevoTotal = carrito.reduce((acc, act) => acc + act.precio * act.cantidad, 0);
 		setTotal(nuevoTotal);
+	};
 
+	const calcularCantidad = () => {
 		const nuevaCantidad = carrito.reduce((acc, act) => acc + act.cantidad, 0);
 		setCantidad(nuevaCantidad);
+	};
+
+	const enviarCarrito = (nombre, email, telefono, direccion, newTotal) => {
+		const carritosCollection = collection(db, "carritos");
+
+		const carritoData = {
+			productos: carrito.map((el) => {
+				return {
+					id: el.id,
+					nombre: el.nombre,
+					cantidad: el.cantidad,
+					precio: el.precio,
+				};
+			}),
+			nombre: nombre,
+			email: email,
+			telefono: telefono,
+			direccion: direccion,
+			total: newTotal,
+			fecha: new Date(),
+		};
+
+		addDoc(carritosCollection, carritoData)
+			.then((docRef) => {
+				setPedidoId(docRef.id);
+				toast.success("Se ha logrado enviar el carrito correctamente. Su ID de compra es: " + pedidoId);
+			})
+			.catch(() => {
+				toast.error("Error al enviar su carrito.");
+			});
+
+		limpiarCarrito();
+	};
+
+	useEffect(() => {
+		calcularTotal();
+		calcularCantidad();
 	}, [carrito]);
 
 	const contextValue = {
@@ -74,6 +117,8 @@ const CartProvider = ({ children }) => {
 		agregarItem: agregarItem,
 		limpiarCarrito: limpiarCarrito,
 		cantidad: cantidad,
+		enviarCarrito: enviarCarrito,
+		pedidoId: pedidoId,
 	};
 
 	return <Provider value={contextValue}>{children}</Provider>;
