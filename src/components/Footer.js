@@ -10,7 +10,7 @@ const Footer = () => {
 			<Container>
 				<Row className="d-flex align-items-center light">
 					<Col md={6}>
-						<img alt="Foodi logo" src={logoLarge} width={180} height={51} />
+						<img alt="Foodi logo" src={logoLarge} className="footer-logo" />
 						<p>Copyright © 2022 Foodi</p>
 					</Col>
 					<Col md={6}>

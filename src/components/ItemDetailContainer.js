@@ -30,11 +30,7 @@ const ItemDetailContainer = () => {
 			});
 	}, [idProducto]);
 
-	return (
-		<>
-			<ItemDetail producto={producto} loading={loading} />
-		</>
-	);
+	return <ItemDetail producto={producto} loading={loading} />;
 };
 
 export default ItemDetailContainer;

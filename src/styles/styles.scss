@@ -1,7 +1,5 @@
-// Imports
 @import "./imports/variables";
 
-// General
 html {
 	scroll-behavior: smooth;
 }
@@ -54,7 +52,6 @@ body {
 	padding-right: 0;
 }
 
-// Header
 header {
 	padding: 2rem;
 
@@ -100,7 +97,6 @@ header {
 	border-radius: 5px;
 }
 
-// Main
 main {
 	width: 80%;
 	margin: auto;
@@ -305,9 +301,37 @@ main {
 			}
 		}
 	}
+
+	.thanks-container {
+		width: 60%;
+		margin: auto;
+		padding: 50px;
+		background-color: rgba($color: #fff, $alpha: 0.8);
+		border-radius: 15px;
+		box-shadow: $shadowDown;
+		line-height: 2;
+
+		.thanks-img {
+			width: 65%;
+			margin: auto;
+			border-radius: 100%;
+		}
+
+		.thanks-text {
+			font-size: 1.1rem;
+			text-align: center;
+
+			.thanks-number {
+				font-size: 1.5rem;
+				font-weight: bold;
+				padding: 5px;
+				background-color: rgba($color: #ffc107, $alpha: 0.3);
+				border-radius: 10px;
+			}
+		}
+	}
 }
 
-// Footer
 footer {
 	margin-top: 15px;
 	padding-top: 10px;
@@ -318,6 +342,11 @@ footer {
 	left: 0;
 	bottom: 0;
 	right: 0;
+
+	.footer-logo {
+		width: 180px;
+		height: 51px;
+	}
 
 	.nav-link {
 		color: rgba(0, 0, 0, 0.55);

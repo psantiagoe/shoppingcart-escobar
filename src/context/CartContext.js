@@ -11,6 +11,7 @@ const CartProvider = ({ children }) => {
 	const [total, setTotal] = useState(0);
 	const [cantidad, setCantidad] = useState(0);
 	const [pedidoId, setPedidoId] = useState("");
+	const [uploadingCart, setUploadingCart] = useState(true);
 
 	const borrarItem = (id) => {
 		let filteredItems = [...carrito];
@@ -74,6 +75,7 @@ const CartProvider = ({ children }) => {
 	};
 
 	const enviarCarrito = (nombre, email, telefono, direccion, newTotal) => {
+		setUploadingCart(true);
 		const carritosCollection = collection(db, "carritos");
 
 		const carritoData = {
@@ -96,13 +98,15 @@ const CartProvider = ({ children }) => {
 		addDoc(carritosCollection, carritoData)
 			.then((docRef) => {
 				setPedidoId(docRef.id);
-				toast.success("Se ha logrado enviar el carrito correctamente. Su ID de compra es: " + pedidoId);
+				toast.success("Se ha logrado enviar el carrito correctamente.");
 			})
 			.catch(() => {
 				toast.error("Error al enviar su carrito.");
+			})
+			.finally(() => {
+				limpiarCarrito();
+				setUploadingCart(false);
 			});
-
-		limpiarCarrito();
 	};
 
 	useEffect(() => {
@@ -119,6 +123,7 @@ const CartProvider = ({ children }) => {
 		cantidad: cantidad,
 		enviarCarrito: enviarCarrito,
 		pedidoId: pedidoId,
+		uploadingCart: uploadingCart,
 	};
 
 	return <Provider value={contextValue}>{children}</Provider>;

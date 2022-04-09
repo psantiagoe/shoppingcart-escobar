@@ -10,7 +10,9 @@ const CheckoutItem = ({ producto }) => {
 				<p className="m-0">
 					<strong>Cantidad:</strong> {producto.cantidad}
 				</p>
-				<p className="m-0">$ {producto.precio}</p>
+				<p className="m-0">
+					<strong>Precio:</strong> $ {producto.precio}
+				</p>
 			</div>
 		</Container>
 	);
