@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import CheckoutList from "./CheckoutList";
 import { contexto } from "../context/CartContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import isEmail from "validator/lib/isEmail";
 
 const Checkout = () => {
 	const resultado = useContext(contexto);
 	const { carrito, total, enviarCarrito, uploadingCart } = resultado;
+
+	const [validate, setValidate] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -16,12 +19,15 @@ const Checkout = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		const nombre = e.target.form.formNombre.value;
 		const email = e.target.form.formEmail.value;
 		const telefono = e.target.form.formTelefono.value;
 		const direccion = e.target.form.formDireccion.value;
 
-		if (nombre && telefono && direccion) {
+		setValidate(true);
+
+		if (nombre && telefono && direccion && isEmail(email)) {
 			enviarCarrito(nombre, email, telefono, direccion, newTotal);
 			navigate("/Thanks", { uploadingCart: uploadingCart });
 		} else {
@@ -41,18 +47,22 @@ const Checkout = () => {
 			)}
 			{carrito.length > 0 && (
 				<Container className="d-flex checkout-container">
-					<Form className="envio-form needs-validation p-2">
+					<Form className="envio-form needs-validation p-2" noValidate validated={validate}>
 						<h3 className="titulo">1. Envio</h3>
 						<Form.Group className="mb-3" controlId="formNombre">
 							<Form.Label>
 								Nombres y Apellido<sup>*</sup>
 							</Form.Label>
 							<Form.Control type="text" placeholder="Ej. Juan Carlos" required />
+							<Form.Control.Feedback type="invalid">Por favor ingresa tu nombre.</Form.Control.Feedback>
 						</Form.Group>
 
 						<Form.Group className="mb-3" controlId="formEmail">
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" placeholder="Ej. ejemplo@email.com" />
+							<Form.Control type="email" placeholder="Ej. ejemplo@email.com" required />
+							<Form.Control.Feedback type="invalid">
+								Por favor ingresa un email correcto.
+							</Form.Control.Feedback>
 							<Form.Text className="text-muted">Nunca compartiremos tu email con nadie.</Form.Text>
 						</Form.Group>
 
@@ -60,14 +70,20 @@ const Checkout = () => {
 							<Form.Label>
 								Teléfono<sup>*</sup>
 							</Form.Label>
-							<Form.Control type="text" placeholder="(sin 0 y sin 15) Ej. 1140506070" />
+							<Form.Control type="text" placeholder="(sin 0 y sin 15) Ej. 1140506070" required />
+							<Form.Control.Feedback type="invalid">
+								Por favor tu número de teléfono.
+							</Form.Control.Feedback>
 						</Form.Group>
 
 						<Form.Group className="mb-3" controlId="formDireccion">
 							<Form.Label>
 								Dirección de envío<sup>*</sup>
 							</Form.Label>
-							<Form.Control type="text" placeholder="Ej. Av. Siempreviva 123" />
+							<Form.Control type="text" placeholder="Ej. Av. Siempreviva 123" required />
+							<Form.Control.Feedback type="invalid">
+								Por favor ingresa la dirección de entrega.
+							</Form.Control.Feedback>
 						</Form.Group>
 
 						<Form.Group className="mb-3" controlId="formSubmit">
