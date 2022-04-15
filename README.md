@@ -28,8 +28,9 @@ Este proyecto fue desarrollado e implementado usando las librerías React, Boots
 
 ## Diagrama del proyecto
 
-![Diagrama de componentes](#)
+![Diagrama de componentes](https://user-images.githubusercontent.com/50838559/163548022-b2eb26b7-cad5-47a4-afc5-3820c3b98a26.png)
 
 ## Demo
 
-![Demo](#)
+![Demo](https://user-images.githubusercontent.com/50838559/163549439-b34e9cb9-d5e7-4dd5-a1eb-39c2ed238756.gif)
+
