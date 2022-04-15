@@ -58,7 +58,9 @@ const Checkout = () => {
 						</Form.Group>
 
 						<Form.Group className="mb-3" controlId="formEmail">
-							<Form.Label>Email</Form.Label>
+							<Form.Label>
+								Email<sup>*</sup>
+							</Form.Label>
 							<Form.Control type="email" placeholder="Ej. ejemplo@email.com" required />
 							<Form.Control.Feedback type="invalid">
 								Por favor ingresa un email correcto.
